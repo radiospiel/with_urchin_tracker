@@ -1,0 +1,39 @@
+This is a simple test infrastructure for plugins. Here is how to use it
+(note: all path s are relative to the test subdir):
+
+1)
+
+Check config/database.yml for the database configuration. 
+
+The default configuration runs against an in-memory sqlite3 database 
+(and needs the sqlite3 gem). To run against a different database, you
+would use
+
+  rake DB=postgresql
+  
+2)
+
+Use config/models.rb to define database structures and ActiveRecord 
+classes needed by your tests. Use config/controllers.rb to define
+controllers needed by your tests.
+
+3)
+
+fixtures go into ./fixtures, views go into ./views
+
+4)
+
+tests are below ./tests. They should 
+  
+  "require File.dirname(__FILE__) + '/../config/test.rb'"
+
+on top.
+
+5)
+
+Start testing! Note, that all tests take place in the context of the
+application, where the plugin is installed into.
+
+/eno
+
+You reach me at: eno@open-lab.org
